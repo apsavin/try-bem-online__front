@@ -1,0 +1,6 @@
+block project-presenter {
+    tag: 'iframe',
+    attrs: {
+        src: this.ctx.url
+    }
+}

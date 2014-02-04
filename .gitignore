@@ -3,3 +3,4 @@ app/*/*
 node_modules
 .bem/cache
 .bem/tmp
+.idea

@@ -1,0 +1,6 @@
+.preloader {
+    margin: auto;
+    background: url('preloader.png');
+    width: 160px;
+    height: 24px;
+}
