@@ -6,5 +6,26 @@ BN.addDecl('b-project-editor')
         });
     })
     .blockTemplate(function (ctx) {
-        ctx.content(ctx.json().data.id);
+        var data = ctx.json().data,
+            content = data.content;
+        if (Array.isArray(data)) {
+            content = {
+                block: 'dir',
+                content: content
+            };
+        } else {
+            if (data.w) {
+                content = {
+                    block: 'file-editor',
+                    content: content
+                };
+            } else {
+                content = {
+                    block: 'b-text',
+                    elem: 'pre',
+                    content: content
+                };
+            }
+        }
+        ctx.content(content);
     });
