@@ -8,10 +8,11 @@ BN.addDecl('b-project-editor')
     .blockTemplate(function (ctx) {
         var data = ctx.json().data,
             content = data.content;
-        if (Array.isArray(data)) {
+        if (Array.isArray(content)) {
             content = {
-                block: 'dir',
-                content: content
+                block: 'b-project-dir',
+                content: content,
+                path: BN('i-router').getPath()
             };
         } else {
             if (data.w) {
