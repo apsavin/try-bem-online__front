@@ -6,8 +6,8 @@ BN.addDecl('b-project-dir')
                     elem: 'file',
                     content: file.content,
                     mods: {
-                        w: file.w,
-                        r: file.r
+                        w: file.w.toString(),
+                        r: file.r.toString()
                     },
                     path: json.path + file.content + '/'
                 };
@@ -17,13 +17,16 @@ BN.addDecl('b-project-dir')
     .elemTemplate({
         file: function (ctx) {
             ctx.tag('li');
-            if (ctx.mods().r) {
-                var json = ctx.json();
-                ctx.content({
-                    block: 'b-link',
-                    url: json.path,
-                    content: json.content
-                }, true);
-            }
+        },
+        file_r_true: function (ctx) {
+            var json = ctx.json();
+            ctx.content({
+                block: 'b-link',
+                url: json.path,
+                content: json.content
+            }, true);
+        },
+        file_r_false: function (ctx) {
+            ctx.attr('title', 'In offline version only');
         }
     });
