@@ -34,8 +34,7 @@ BN.addDecl('b-project-editor')
                 };
             } else {
                 content = {
-                    block: 'b-text',
-                    elem: 'pre',
+                    block: 'b-project-file-viewer',
                     content: content
                 };
             }
