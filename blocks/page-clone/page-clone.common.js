@@ -1,4 +1,4 @@
-BN.addDecl('clone', 'page', {
+BN.addDecl('page-clone', 'page', {
     route: /^\/clone\/$/
 }).staticProp({
     init: function () {

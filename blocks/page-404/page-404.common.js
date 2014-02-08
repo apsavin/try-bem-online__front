@@ -1,4 +1,4 @@
-BN.addDecl('404', 'page', {
+BN.addDecl('page-404', 'page', {
     route: '404'
 }).staticProp({
     init: function () {

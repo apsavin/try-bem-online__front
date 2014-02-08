@@ -1,4 +1,4 @@
-BN.addDecl('project', 'page', {
+BN.addDecl('page-project', 'page', {
     route: /^\/clones\/(.+)\/$/
 }).staticProp({
     init: function (matchers) {

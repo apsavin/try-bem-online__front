@@ -1,4 +1,4 @@
-BN.addDecl('index', 'page', {
+BN.addDecl('page-index', 'page', {
     route: /^\/$/
 }).staticProp({
     init: function () {
