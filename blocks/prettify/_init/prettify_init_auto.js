@@ -1,4 +1,0 @@
-/*global prettyPrint*/
-$(function () {
-    prettyPrint();
-});

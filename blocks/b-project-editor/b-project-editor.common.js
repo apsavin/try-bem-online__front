@@ -20,24 +20,23 @@ BN.addDecl('b-project-editor')
             return;
         }
 
+        var curPath = BN('i-router').getPath();
+
         if (Array.isArray(content)) {
             content = {
                 block: 'b-project-dir',
                 content: content,
-                path: BN('i-router').getPath()
+                path: curPath
             };
         } else {
-            if (data.w) {
-                content = {
-                    block: 'file-editor',
-                    content: content
-                };
-            } else {
-                content = {
-                    block: 'b-project-file-viewer',
-                    content: content
-                };
-            }
+            content = {
+                block: 'b-project-file-viewer',
+                content: content,
+                js: {
+                    w: data.w,
+                    mode: /\.css\/$/.test(curPath) ? 'css' : 'javascript'
+                }
+            };
         }
         ctx.content(content);
     });

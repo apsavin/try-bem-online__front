@@ -1,5 +1,5 @@
 ({
     shouldDeps: [
-        {block: 'prettify', mods: {init: 'auto'}}
+        {block: 'codemirror', mods: {mode: ['js', 'css'], theme: 'solarized'}}
     ]
 })
