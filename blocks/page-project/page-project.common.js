@@ -1,5 +1,5 @@
 BN.addDecl('page-project', 'page', {
-    route: /^\/clones\/(.+)\/$/
+    route: /^\/clones\/(\w+)\/?(.*)?\/$/
 }).staticProp({
     init: function (matchers) {
 
@@ -18,7 +18,7 @@ BN.addDecl('page-project', 'page', {
                     'You can take a look on your project\'s ',
                     {
                         block: 'b-link',
-                        url: BN('i-router').getPath() + 'view/',
+                        url: '/clones/' + matchers[1] + '/view/',
                         target: '_blank',
                         content: 'page'
                     },
@@ -27,7 +27,8 @@ BN.addDecl('page-project', 'page', {
             },
             {
                 block: 'b-project-editor',
-                project: matchers[1]
+                projectId: matchers[1],
+                path: matchers[2] || ''
             }
         ]);
     }

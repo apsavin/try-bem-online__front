@@ -1,6 +1,6 @@
 BN.addDecl('b-project-editor')
     .dataTemplate(function (ctx) {
-        return BN('i-projects-api').get('clones/' + ctx.param('project'))
+        return BN('i-projects-api').getProjectResource(ctx.param('projectId'), ctx.param('path'))
             .then(function (data) {
                 ctx.param('data', data);
             })

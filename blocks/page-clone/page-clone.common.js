@@ -5,7 +5,7 @@ BN.addDecl('page-clone', 'page', {
 
         BN('i-page').setTitle('Project is cloning...');
 
-        BN('i-projects-api').post('clone').then(function (response) {
+        BN('i-projects-api').createProject().then(function (response) {
             BN('i-router').setPath('/clones/' + response.id + '/');
         });
 
