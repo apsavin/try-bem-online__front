@@ -4,3 +4,4 @@ node_modules
 .bem/cache
 .bem/tmp
 .idea
+blocks/i-config/i-config.common.js

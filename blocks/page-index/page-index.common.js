@@ -22,7 +22,7 @@ BN.addDecl('page-index', 'page', {
             },
             {
                 block: 'project-presenter',
-                url: '//example.try-bem-online.dev'
+                url: BN('i-config').example
             },
             {
                 block: 'b-text',

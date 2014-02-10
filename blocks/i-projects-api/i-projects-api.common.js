@@ -1,5 +1,5 @@
 BN.addDecl('i-projects-api', 'ajax', {
-    apiHost: 'http://api.try-bem-online.dev'
+    apiHost: BN('i-config').api
 }).staticProp({
 
     /**
