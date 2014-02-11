@@ -26,7 +26,8 @@ BN.addDecl('b-project-editor')
             content = {
                 block: 'b-project-dir',
                 content: content,
-                path: curPath
+                path: curPath,
+                hasParent: !!ctx.param('path')
             };
         } else {
             content = {

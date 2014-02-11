@@ -12,6 +12,20 @@ BN.addDecl('b-project-dir')
                     path: json.path + file.content + '/'
                 };
             });
+        if (json.hasParent) {
+            var pathsParts = json.path.split('/');
+            pathsParts.pop();
+            pathsParts.pop();
+            content.unshift({
+                elem: 'file',
+                content: '..',
+                mods: {
+                    w: 'false',
+                    r: 'true'
+                },
+                path: pathsParts.join('/') + '/'
+            });
+        }
         ctx.tag('ul').content(content, true);
     })
     .elemTemplate({
