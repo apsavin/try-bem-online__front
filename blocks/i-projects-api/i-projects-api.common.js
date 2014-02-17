@@ -3,6 +3,16 @@ BN.addDecl('i-projects-api', 'ajax', {
 }).staticProp({
 
     /**
+     * @param {string} projectId
+     * @param {string} path
+     * @returns {string}
+     * @private
+     */
+    _buildResourcePath: function (projectId, path) {
+        return 'project/' + projectId + '/' + path;
+    },
+
+    /**
      * @param {String} resource
      * @param {Object} [options]
      * @returns {Vow.Promise}
@@ -21,9 +31,23 @@ BN.addDecl('i-projects-api', 'ajax', {
     /**
      * @param {String} projectId
      * @param {String} path
-     * @returns {*|Vow.promise}
+     * @returns {Vow.Promise}
      */
     getProjectResource: function (projectId, path) {
-        return this.get('project/' + projectId + '/' + path);
+        return this.get(this._buildResourcePath(projectId, path));
+    },
+
+    /**
+     * @param {String} projectId
+     * @param {String} path
+     * @param {String} data
+     * @returns {Vow.Promise}
+     */
+    writeFile: function (projectId, path, data) {
+        return this.post(this._buildResourcePath(projectId, path), {
+            data: {
+                body: data
+            }
+        });
     }
 });

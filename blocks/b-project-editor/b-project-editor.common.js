@@ -33,8 +33,12 @@ BN.addDecl('b-project-editor')
             content = {
                 block: 'b-project-file-viewer',
                 content: content,
+                mods: {
+                    w: data.w.toString()
+                },
                 js: {
-                    w: data.w,
+                    path: ctx.param('path'),
+                    projectId: ctx.param('projectId'),
                     mode: /\.css\/$/.test(curPath) ? 'css' : 'javascript'
                 }
             };
