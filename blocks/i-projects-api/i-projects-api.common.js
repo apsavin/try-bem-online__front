@@ -49,5 +49,13 @@ BN.addDecl('i-projects-api', 'ajax', {
                 body: data
             }
         });
+    },
+
+    /**
+     * @param {String} projectId
+     * @returns {string}
+     */
+    getViewPath: function (projectId) {
+        return '//' + projectId + '.' + BN('i-config').views + '/' + 'index.html';
     }
 });

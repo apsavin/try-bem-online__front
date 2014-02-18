@@ -1,0 +1,8 @@
+.b-project-menu {
+    margin: 10px 0;
+    padding: 0;
+}
+
+.b-project-menu__item {
+    list-style-type: none;
+}

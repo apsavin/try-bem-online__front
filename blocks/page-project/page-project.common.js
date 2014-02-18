@@ -5,6 +5,9 @@ BN.addDecl('page-project', 'page', {
 
         BN('i-page').setTitle('Your project');
 
+        var projectId = matchers[1],
+            path = matchers[2] || '';
+
         return this.out([
             {
                 block: 'b-text',
@@ -12,23 +15,26 @@ BN.addDecl('page-project', 'page', {
                 content: 'Play with your project now!'
             },
             {
-                block: 'b-text',
-                elem: 'p',
+                block: 'b-project-layout',
                 content: [
-                    'You can take a look on your project\'s ',
                     {
-                        block: 'b-link',
-                        url: '/clones/' + matchers[1] + '/view/',
-                        target: '_blank',
-                        content: 'page'
+                        block: 'b-project-editor',
+                        projectId: projectId,
+                        path: path,
+                        mix: {
+                            block: 'b-project-layout',
+                            elem: 'content'
+                        }
                     },
-                    '.'
+                    {
+                        block: 'b-project-layout',
+                        elem: 'sidebar',
+                        content: {
+                            block: 'b-project-menu',
+                            projectId: projectId
+                        }
+                    }
                 ]
-            },
-            {
-                block: 'b-project-editor',
-                projectId: matchers[1],
-                path: matchers[2] || ''
             }
         ]);
     }
