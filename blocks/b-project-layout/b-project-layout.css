@@ -1,3 +1,6 @@
 .b-project-layout {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
     display: flex;
 }

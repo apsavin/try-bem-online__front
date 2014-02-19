@@ -1,3 +1,6 @@
 .b-project-layout__sidebar {
+    -webkit-flex: 0 0 100px;
+    -moz-flex: 0 0 100px;
+    -ms-flex: 0 0 100px;
     flex: 0 0 100px;
 }
