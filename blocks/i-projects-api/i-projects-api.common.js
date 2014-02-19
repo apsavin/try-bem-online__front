@@ -56,6 +56,6 @@ BN.addDecl('i-projects-api', 'ajax', {
      * @returns {string}
      */
     getViewPath: function (projectId) {
-        return '//' + projectId + '.' + BN('i-config').views + '/' + 'index.html';
+        return BN('i-config').views + '/' + projectId + '/' + 'index.html';
     }
 });
