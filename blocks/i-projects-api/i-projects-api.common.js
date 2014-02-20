@@ -57,5 +57,17 @@ BN.addDecl('i-projects-api', 'ajax', {
      */
     getViewPath: function (projectId) {
         return BN('i-config').views + '/' + projectId + '/' + 'index.html';
+    },
+
+    /**
+     * @param {String} projectId
+     * @returns {Vow.Promise}
+     */
+    buildProject: function (projectId) {
+        return this.post('project/' + projectId, {
+            params: {
+                action: 'build'
+            }
+        });
     }
 });

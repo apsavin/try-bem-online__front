@@ -9,5 +9,7 @@ exports.blocks = [
     {block: 'page-404'},
     {block: 'page-index'},
     {block: 'page-clone'},
-    {block: 'page-project'}
+    {block: 'page-project'},
+    {block: 'page-build'},
+    {block: 'page-built'}
 ];
