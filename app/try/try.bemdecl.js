@@ -11,5 +11,7 @@ exports.blocks = [
     {block: 'page-clone'},
     {block: 'page-project'},
     {block: 'page-build'},
-    {block: 'page-built'}
+    {block: 'page-built'},
+    {block: 'page-clean'},
+    {block: 'page-cleaned'}
 ];

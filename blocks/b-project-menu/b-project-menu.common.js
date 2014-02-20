@@ -1,5 +1,7 @@
 BN.addDecl('b-project-menu')
     .blockTemplate(function (ctx) {
+        var projectId = ctx.param('projectId');
+
         ctx
             .tag('ul')
             .content([
@@ -7,7 +9,15 @@ BN.addDecl('b-project-menu')
                     elem: 'item',
                     content: {
                         block: 'b-link',
-                        url: BN('i-projects-api').getViewPath(ctx.param('projectId')),
+                        url: '/clones/' + projectId + '/',
+                        content: 'Top dir'
+                    }
+                },
+                {
+                    elem: 'item',
+                    content: {
+                        block: 'b-link',
+                        url: BN('i-projects-api').getViewPath(projectId),
                         content: 'View',
                         target: '_blank'
                     }
@@ -16,7 +26,7 @@ BN.addDecl('b-project-menu')
                     elem: 'item',
                     content: {
                         block: 'b-link',
-                        url: '/build/' + ctx.param('projectId') + '/',
+                        url: '/build/' + projectId + '/',
                         content: 'Build'
                     }
                 },
@@ -24,7 +34,7 @@ BN.addDecl('b-project-menu')
                     elem: 'item',
                     content: {
                         block: 'b-link',
-                        url: '/clean/' + ctx.param('projectId') + '/',
+                        url: '/clean/' + projectId + '/',
                         content: 'Clean up'
                     }
                 },
@@ -32,7 +42,7 @@ BN.addDecl('b-project-menu')
                     elem: 'item',
                     content: {
                         block: 'b-link',
-                        url: '/create_block/' + ctx.param('projectId') + '/',
+                        url: '/create_block/' + projectId + '/',
                         content: 'Create...'
                     }
                 }

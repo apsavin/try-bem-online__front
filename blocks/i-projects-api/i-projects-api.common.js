@@ -69,5 +69,17 @@ BN.addDecl('i-projects-api', 'ajax', {
                 action: 'build'
             }
         });
+    },
+
+    /**
+     * @param {String} projectId
+     * @returns {Vow.Promise}
+     */
+    cleanProject: function (projectId) {
+        return this.post('project/' + projectId, {
+            params: {
+                action: 'clean'
+            }
+        });
     }
 });
