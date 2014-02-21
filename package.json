@@ -3,7 +3,6 @@
     "version": "0.0.1",
     "private": true,
     "dependencies": {
-        "bem-components": "git://github.com/bem/bem-components.git#v1",
         "bem-node": "0.7.*",
         "enb": "0.8.43",
         "enb-bemhtml": "0.2.1"

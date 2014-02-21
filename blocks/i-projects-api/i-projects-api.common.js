@@ -81,5 +81,12 @@ BN.addDecl('i-projects-api', 'ajax', {
                 action: 'clean'
             }
         });
+    },
+
+    /**
+     * @returns {Vow.Promise}
+     */
+    getTechs: function () {
+        return this.get('techs');
     }
 });

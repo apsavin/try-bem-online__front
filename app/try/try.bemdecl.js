@@ -13,5 +13,6 @@ exports.blocks = [
     {block: 'page-build'},
     {block: 'page-built'},
     {block: 'page-clean'},
-    {block: 'page-cleaned'}
+    {block: 'page-cleaned'},
+    {block: 'page-create-block'}
 ];
