@@ -13,7 +13,12 @@ BN.addDecl('b-create-block-form')
     })
     .blockTemplate(function (ctx) {
 
-        var textInput = function (name, label) {
+        /**
+         * @param {Object} input
+         * @param {String} label
+         * @returns {Object}
+         */
+        var someInput = function (input, label) {
             return {
                 block: 'b-text',
                 elem: 'p',
@@ -24,44 +29,42 @@ BN.addDecl('b-create-block-form')
                             elem: 'content',
                             content: label
                         },
-                        {
-                            block: 'input',
-                            name: name
-                        }
+                        input
                     ]
                 }
             };
         };
+        /**
+         * @param {String} name
+         * @param {String} label
+         * @param {Boolean} [required]
+         * @returns {Object} text input json
+         */
+        var textInput = function (name, label, required) {
+            return someInput({
+                block: 'input',
+                name: name,
+                required: !!required
+            }, label);
+        };
 
         ctx.tag('form')
             .content([
-                textInput('block', 'Name of the block:'),
+                textInput('block', 'Name of the block:', true),
                 textInput('elem', 'Name of the element (optional):'),
                 textInput('modName', 'Name of the modifier (optional):'),
                 textInput('modVal', 'Value of the modifier (optional):'),
-                {
-                    block: 'b-text',
-                    elem: 'p',
-                    content: {
-                        block: 'label',
-                        content: [
-                            {
-                                elem: 'content',
-                                content: 'Technology: '
-                            },
-                            {
-                                block: 'select',
-                                name: 'tech',
-                                options: ctx.param('techs')
-                            }
-                        ]
-                    }
-                },
+                someInput({
+                    block: 'select',
+                    name: 'tech',
+                    options: ctx.param('techs')
+                }, 'Technology:'),
                 {
                     block: 'b-text',
                     elem: 'p',
                     content: {
                         block: 'button',
+                        name: 'send',
                         type: 'submit',
                         content: 'Create'
                     }

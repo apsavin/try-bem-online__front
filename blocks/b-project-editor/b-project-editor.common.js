@@ -12,7 +12,7 @@ BN.addDecl('b-project-editor')
         var data = ctx.json().data,
             content = data.content;
 
-        if (!content) {
+        if (!content && content !== '') {
             ctx.content({
                 block: 'b-project-error',
                 content: data.status

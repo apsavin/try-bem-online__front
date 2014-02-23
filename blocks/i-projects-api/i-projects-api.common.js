@@ -45,8 +45,8 @@ BN.addDecl('i-projects-api', 'ajax', {
      */
     writeFile: function (projectId, path, data) {
         return this.post(this._buildResourcePath(projectId, path), {
-            data: {
-                body: data
+            body: {
+                content: data
             }
         });
     },
@@ -88,5 +88,20 @@ BN.addDecl('i-projects-api', 'ajax', {
      */
     getTechs: function () {
         return this.get('techs');
+    },
+
+    /**
+     * @param {Object} params
+     * @param {String} params.projectId
+     * @param {String} params.block
+     * @param {String} params.elem
+     * @param {String} [params.modName]
+     * @param {String} [params.modVal]
+     * @returns {Vow.Promise}
+     */
+    createBlockFile: function (params) {
+        return this.post('block', {
+            params: params
+        });
     }
 });

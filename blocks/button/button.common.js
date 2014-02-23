@@ -1,5 +1,11 @@
 BN.addDecl('button')
     .blockTemplate(function (ctx) {
-        ctx.tag('button')
-            .attr('type', ctx.param('type'));
+        if (ctx.param('url')) {
+            ctx.tag('a');
+            ctx.attr('href', ctx.param('url'));
+        } else {
+            ctx.tag('button');
+            ctx.attr('type', ctx.param('type'));
+            ctx.attr('name', ctx.param('name'));
+        }
     });
