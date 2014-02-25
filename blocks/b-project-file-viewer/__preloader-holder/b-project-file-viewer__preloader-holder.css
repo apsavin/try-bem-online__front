@@ -1,0 +1,17 @@
+.b-project-file-viewer__preloader-holder {
+    background: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+.b-project-file-viewer__preloader-holder_visible_true {
+    display: block;
+}
+
+.b-project-file-viewer__preloader-holder .preloader {
+    margin-top: 300px;
+}

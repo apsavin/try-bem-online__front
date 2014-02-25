@@ -15,7 +15,11 @@ BN.addDecl('b-project-file-viewer')
         _onSubmit: function (e) {
             e.preventDefault();
             var p = this.params;
-            BN('i-projects-api').writeFile(p.projectId, p.path, this._codeMirror.getDoc().getValue());
+            this.setMod('disabled', 'true');
+            BN('i-projects-api').writeFile(p.projectId, p.path, this._codeMirror.getDoc().getValue())
+                .then(function () {
+                    this.delMod('disabled');
+                }.bind(this));
         }
     })
     .onSetMod({
@@ -24,7 +28,29 @@ BN.addDecl('b-project-file-viewer')
                 this.__base();
                 if (this.hasMod('w', 'true')) {
                     this._initForm();
+
+                    /**
+                     * @type {BEM[]}
+                     * @private
+                     */
+                    this._buttons = this.findBlocksInside('buttons');
                 }
+            }
+        },
+        disabled: {
+            'true': function () {
+                this.setMod(this.elem('preloader-holder'), 'visible', 'true');
+                this._codeMirror.setOption('readOnly', true);
+                this._buttons.forEach(function (button) {
+                    button.setMod('disabled', 'true');
+                });
+            },
+            '': function () {
+                this.delMod(this.elem('preloader-holder'), 'visible');
+                this._codeMirror.setOption('readOnly', false);
+                this._buttons.forEach(function (button) {
+                    button.delMod('disabled');
+                });
             }
         }
     });

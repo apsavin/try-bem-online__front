@@ -7,5 +7,8 @@ BN.addDecl('button')
             ctx.tag('button');
             ctx.attr('type', ctx.param('type'));
             ctx.attr('name', ctx.param('name'));
+            if (ctx.mod('disabled')) {
+                ctx.attr('disabled', 'disabled');
+            }
         }
     });
