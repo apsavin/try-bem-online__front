@@ -1,5 +1,5 @@
 BN.addDecl('page-project', 'page', {
-    route: /^\/clones\/(\w+)\/?(.*)?\/$/
+    route: /^\/clones\/([\w-]+)\/?(.*)?\/$/
 }).staticProp({
     init: function (matchers) {
 

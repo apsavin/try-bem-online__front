@@ -1,5 +1,5 @@
 BN.addDecl('page-clean', 'page', {
-    route: /^\/clean\/(\w+)\/$/
+    route: /^\/clean\/([\w-]+)\/$/
 }).staticProp({
     init: function (matchers) {
 

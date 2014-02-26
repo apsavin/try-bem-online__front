@@ -1,5 +1,5 @@
 BN.addDecl('page-build', 'page', {
-    route: /^\/build\/(\w+)\/$/
+    route: /^\/build\/([\w-]+)\/$/
 }).staticProp({
     init: function (matchers) {
 

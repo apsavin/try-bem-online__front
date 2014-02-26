@@ -1,5 +1,5 @@
 BN.addDecl('page-create-block', 'page', {
-    route: /^\/create_block\/(\w+)\/$/
+    route: /^\/create_block\/([\w-]+)\/$/
 }).staticProp({
     init: function (matchers) {
 
