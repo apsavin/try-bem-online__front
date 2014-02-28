@@ -5,10 +5,6 @@ BN.addDecl('page-clean', 'page', {
 
         BN('i-page').setTitle('Project is in clean up process...');
 
-        BN('i-projects-api').cleanProject(matchers[1]).then(function (response) {
-            BN('i-router').setPath('/cleaned/' + response.id + '/');
-        });
-
         return this.out([
             {
                 block: 'b-text',
@@ -16,7 +12,11 @@ BN.addDecl('page-clean', 'page', {
                 content: 'Project is in clean up process...'
             },
             {
-                block: 'preloader'
+                block: 'b-project-maker',
+                js: {
+                    projectId: matchers[1],
+                    method: 'clean'
+                }
             }
         ]);
     }

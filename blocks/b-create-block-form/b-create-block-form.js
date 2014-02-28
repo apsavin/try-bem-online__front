@@ -26,14 +26,10 @@ BN.addDecl('b-create-block-form')
             BN('i-projects-api').createBlockFile(params)
                 .then(function (response) {
                     BN('i-router').setPath('/clones/' + response.projectId + '/' + response.path + '/');
-                    form.send.disabled = false;
-                }, function (response) {
-                    try {
-                        response = response.message || JSON.stringify(response);
-                    } catch (e) {
-                        response = String(response);
-                    }
-                    window.alert(response);
+                }, function (err) {
+                    window.alert(err.message);
+                })
+                .always(function () {
                     form.send.disabled = false;
                 });
         }

@@ -1,20 +1,22 @@
 BN.addDecl('page-build', 'page', {
     route: /^\/build\/([\w-]+)\/$/
 }).staticProp({
-    /**
-     * @param {Array} matchers
-     * @protected
-     */
-    _makeRequest: function (matchers) {
-        return BN('i-projects-api').buildProject(matchers[1]).then(function (response) {
-            BN('i-router').setPath('/built/' + response.id + '/');
-        });
-    },
+    init: function (matchers) {
 
-    /**
-     * @protected
-     */
-    _setTitle: function () {
-        this.setTitle('Project is in build process...');
+        BN('i-page').setTitle('Project is in build process...');
+
+        return this.out([
+            {
+                block: 'b-text',
+                elem: 'h1',
+                content: 'Project is in build process...'
+            },
+            {
+                block: 'b-project-maker',
+                js: {
+                    projectId: matchers[1]
+                }
+            }
+        ]);
     }
 });
