@@ -2,7 +2,7 @@ BN.addDecl('i-projects-api', 'ajax', {
     apiHost: BN('i-config').api
 }).staticProp({
 
-    TIMEOUT: 10000,
+    TIMEOUT: 20000,
 
     /**
      * @param {string} projectId
