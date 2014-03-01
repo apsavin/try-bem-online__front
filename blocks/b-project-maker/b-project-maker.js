@@ -2,37 +2,65 @@ BN.addDecl('b-project-maker')
     .onSetMod({
         js: {
             inited: function () {
-                var promise = this.params.method === 'clean' ? this._clean() : this._build();
-                promise.fail(function (err) {
-                    window.alert(err.message);
-                });
+                this._onClean = this._onClean.bind(this);
+                this._onBuild = this._onBuild.bind(this);
+                this._onFail = this._onFail.bind(this);
+                if (this.params.method === 'clean') {
+                    this._clean();
+                } else {
+                    this._build();
+                }
             }
         }
     })
     .instanceProp({
 
         /**
-         * @returns {Vow.Promise}
          * @private
          */
         _clean: function () {
-            return BN('i-projects-api').cleanProject(this.params.projectId).then(function (response) {
-                BN('i-router').setPath('/cleaned/' + response.id + '/');
-            });
+            BN('i-projects-api').cleanProject(this.params.projectId).then(this._onClean, this._onFail);
         },
 
         /**
-         * @returns {Vow.Promise}
+         * @private
+         */
+        _onClean: function (response) {
+            if (response.queue === undefined) {
+                BN('i-router').setPath('/cleaned/' + response.id + '/');
+            } else {
+                if (response.queue || this.elem('queue').text()) {
+                    this.elem('queue').text(response.queue);
+                } else {
+                    this.elem('queue').hide();
+                }
+                BN('i-projects-api').getProjectStatus(response.id, 'clean').then(this._onClean, this._onFail);
+            }
+        },
+
+        /**
+         * @private
+         */
+        _onFail: function (err) {
+            window.alert(err.message);
+        },
+
+        /**
          * @private
          */
         _build: function () {
-            return BN('i-projects-api').buildProject(this.params.projectId).then(function (response) {
+            BN('i-projects-api').buildProject(this.params.projectId).then(this._onBuild, this._onFail);
+        },
+
+        /**
+         * @private
+         */
+        _onBuild: function (response) {
+            if (response.queue === undefined) {
                 BN('i-router').setPath('/built/' + response.id + '/');
-            });
+            } else {
+                this.elem('queue').text(response.queue);
+                BN('i-projects-api').getProjectStatus(response.id, 'make').then(this._onBuild, this._onFail);
+            }
         }
-    })
-    .blockTemplate(function (ctx) {
-        ctx.content({
-            block: 'preloader'
-        });
     });

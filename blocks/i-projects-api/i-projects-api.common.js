@@ -66,11 +66,7 @@ BN.addDecl('i-projects-api', 'ajax', {
      * @returns {Vow.Promise}
      */
     buildProject: function (projectId) {
-        return this.post('project/' + projectId, {
-            params: {
-                action: 'build'
-            }
-        });
+        return this._projectAction(projectId, 'build');
     },
 
     /**
@@ -78,10 +74,32 @@ BN.addDecl('i-projects-api', 'ajax', {
      * @returns {Vow.Promise}
      */
     cleanProject: function (projectId) {
+        return this._projectAction(projectId, 'clean');
+    },
+
+    /**
+     * @param {String} projectId
+     * @param {String} method
+     * @returns {Vow.Promise}
+     */
+    getProjectStatus: function (projectId, method) {
+        return this._projectAction(projectId, 'status', {
+            method: method
+        });
+    },
+
+    /**
+     * @param {String} projectId
+     * @param {String} action
+     * @param {Object} [params]
+     * @returns {Vow.Promise}
+     * @private
+     */
+    _projectAction: function (projectId, action, params) {
+        params = params || {};
+        params.action = action;
         return this.post('project/' + projectId, {
-            params: {
-                action: 'clean'
-            }
+            params: params
         });
     },
 
