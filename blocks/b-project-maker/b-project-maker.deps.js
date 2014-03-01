@@ -1,6 +1,6 @@
 ({
     shouldDeps: [
-        {block: 'b-text', elems: ['h1', 'p']},
+        {block: 'b-text', elems: ['h2', 'p']},
         {block: 'preloader'}
     ]
 })
