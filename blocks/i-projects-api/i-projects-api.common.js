@@ -80,11 +80,13 @@ BN.addDecl('i-projects-api', 'ajax', {
     /**
      * @param {String} projectId
      * @param {String} method
+     * @param {?Number} queue
      * @returns {Vow.Promise}
      */
-    getProjectStatus: function (projectId, method) {
+    getProjectStatus: function (projectId, method, queue) {
         return this._projectAction(projectId, 'status', {
-            method: method
+            method: method,
+            queue: queue
         });
     },
 

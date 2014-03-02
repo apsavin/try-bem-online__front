@@ -29,12 +29,8 @@ BN.addDecl('b-project-maker')
             if (response.queue === undefined) {
                 BN('i-router').setPath('/cleaned/' + response.id + '/');
             } else {
-                if (response.queue || this.elem('queue').text()) {
-                    this.elem('queue').text(response.queue);
-                } else {
-                    this.elem('queue').hide();
-                }
-                BN('i-projects-api').getProjectStatus(response.id, 'clean').then(this._onClean, this._onFail);
+                this._showQueue(response.queue);
+                BN('i-projects-api').getProjectStatus(response.id, 'clean', response.queue).then(this._onClean, this._onFail);
             }
         },
 
@@ -59,8 +55,18 @@ BN.addDecl('b-project-maker')
             if (response.queue === undefined) {
                 BN('i-router').setPath('/built/' + response.id + '/');
             } else {
-                this.elem('queue').text(response.queue);
-                BN('i-projects-api').getProjectStatus(response.id, 'make').then(this._onBuild, this._onFail);
+                this._showQueue(response.queue);
+                BN('i-projects-api').getProjectStatus(response.id, 'make', response.queue).then(this._onBuild, this._onFail);
+            }
+        },
+
+        /**
+         * @param {Number} queue
+         * @private
+         */
+        _showQueue: function (queue) {
+            if (queue || this.elem('queue').text()) {
+                this.elem('queue').text('Queue: ' + queue);
             }
         }
     });
