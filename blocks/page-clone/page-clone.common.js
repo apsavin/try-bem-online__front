@@ -5,10 +5,6 @@ BN.addDecl('page-clone', 'page', {
 
         BN('i-page').setTitle('Project is cloning...');
 
-        BN('i-projects-api').createProject().then(function (response) {
-            BN('i-router').setPath('/clones/' + response.id + '/');
-        });
-
         return this.out([
             {
                 block: 'b-text',
@@ -16,7 +12,11 @@ BN.addDecl('page-clone', 'page', {
                 content: 'Project is cloning right now...'
             },
             {
-                block: 'preloader'
+                block: 'preloader',
+                mix: {
+                    block: 'b-project-cloner',
+                    js: true
+                }
             },
             {
                 block: 'b-text',
