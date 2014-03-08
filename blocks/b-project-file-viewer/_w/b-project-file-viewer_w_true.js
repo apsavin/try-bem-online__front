@@ -1,3 +1,4 @@
+/*global esprima:false*/
 BN.addDecl('b-project-file-viewer')
     .instanceProp({
 
@@ -14,10 +15,22 @@ BN.addDecl('b-project-file-viewer')
          */
         _onSubmit: function (e) {
             e.preventDefault();
-            var p = this.params;
+            var p = this.params,
+                content = this._codeMirror.getDoc().getValue();
+            if (p.path.split('.').pop() === 'js') {
+                try {
+                    esprima.parse(content);
+                } catch (e) {
+                    window.alert(e);
+                    return;
+                }
+            }
             this.setMod('disabled', 'true');
-            BN('i-projects-api').writeFile(p.projectId, p.path, this._codeMirror.getDoc().getValue())
-                .then(function () {
+            BN('i-projects-api').writeFile(p.projectId, p.path, content)
+                .fail(function (e) {
+                    window.alert(e.message);
+                })
+                .always(function () {
                     this.delMod('disabled');
                 }.bind(this));
         }
