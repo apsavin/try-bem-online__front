@@ -34,7 +34,7 @@ BN.addDecl('page-index', 'page', {
                         url: '/clone/',
                         content: 'clone'
                     },
-                    ' this project and play with it online.'
+                    ' this project and play with it online. TTL of the created clone will be 3h.'
                 ]
             }
         ]);
