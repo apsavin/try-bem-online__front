@@ -23,7 +23,7 @@ BN.addDecl('b-project-editor')
         var curPath = BN('i-router').getPath(),
             parentPath = null;
 
-        if (!!curPath) {
+        if (!!ctx.param('path')) {
             var pathsParts = curPath.split('/');
             pathsParts.pop();
             pathsParts.pop();
