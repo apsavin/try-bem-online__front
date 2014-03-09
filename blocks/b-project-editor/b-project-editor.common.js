@@ -20,28 +20,43 @@ BN.addDecl('b-project-editor')
             return;
         }
 
-        var curPath = BN('i-router').getPath();
+        var curPath = BN('i-router').getPath(),
+            parentPath = null;
+
+        if (!!curPath) {
+            var pathsParts = curPath.split('/');
+            pathsParts.pop();
+            pathsParts.pop();
+            parentPath = pathsParts.join('/') + '/';
+        }
 
         if (Array.isArray(content)) {
             content = {
                 block: 'b-project-dir',
                 content: content,
                 path: curPath,
-                hasParent: !!ctx.param('path')
+                parentPath: parentPath
             };
         } else {
-            content = {
-                block: 'b-project-file-viewer',
-                content: content,
-                mods: {
-                    w: data.w.toString()
+            content = [
+                {
+                    block: 'b-link',
+                    url: parentPath,
+                    content: '..'
                 },
-                js: {
-                    path: ctx.param('path'),
-                    projectId: ctx.param('projectId'),
-                    mode: /\.css\/$/.test(curPath) ? 'css' : 'javascript'
+                {
+                    block: 'b-project-file-viewer',
+                    content: content,
+                    mods: {
+                        w: data.w.toString()
+                    },
+                    js: {
+                        path: ctx.param('path'),
+                        projectId: ctx.param('projectId'),
+                        mode: /\.css\/$/.test(curPath) ? 'css' : 'javascript'
+                    }
                 }
-            };
+            ];
         }
         ctx.content(content);
     });

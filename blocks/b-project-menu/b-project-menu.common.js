@@ -10,7 +10,7 @@ BN.addDecl('b-project-menu')
                     content: {
                         block: 'b-link',
                         url: '/clones/' + projectId + '/',
-                        content: 'Top dir'
+                        content: 'Root dir'
                     }
                 },
                 {
