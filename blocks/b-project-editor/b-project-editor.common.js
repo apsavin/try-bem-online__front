@@ -6,6 +6,9 @@ BN.addDecl('b-project-editor')
             })
             .fail(function (err) {
                 ctx.param('data', err);
+                if (err.status === 404) {
+                    BN('i-router').setPath('/404');
+                }
             });
     })
     .blockTemplate(function (ctx) {
