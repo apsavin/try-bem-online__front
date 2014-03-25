@@ -27,6 +27,16 @@ BN.addDecl('b-project-menu')
                     content: {
                         block: 'b-link',
                         url: '/build/' + projectId + '/',
+                        mix: {
+                            block: 'b-project-maker',
+                            mods: {
+                                position: 'local'
+                            },
+                            js: {
+                                projectId: projectId
+                            }
+                        },
+                        target: '_blank',
                         content: 'Build'
                     }
                 },
@@ -35,6 +45,17 @@ BN.addDecl('b-project-menu')
                     content: {
                         block: 'b-link',
                         url: '/clean/' + projectId + '/',
+                        mix: {
+                            block: 'b-project-maker',
+                            mods: {
+                                position: 'local'
+                            },
+                            js: {
+                                projectId: projectId,
+                                method: 'clean'
+                            }
+                        },
+                        target: '_blank',
                         content: 'Clean up'
                     }
                 },

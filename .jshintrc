@@ -50,7 +50,7 @@
 
 
     // The Good Parts.
-    "unused"        : true,
+    "unused"        : "vars",
     "asi"           : false,  // Tolerate Automatic Semicolon Insertion (no semicolons).
     "laxbreak"      : true,   // Tolerate unsafe line breaks e.g. `return [\n] x` without semicolons.
     "bitwise"       : false,  // Prohibit bitwise operators (&, |, ^, etc.).

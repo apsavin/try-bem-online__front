@@ -13,6 +13,7 @@ BN.addDecl('page-build', 'page', {
             },
             {
                 block: 'b-project-maker',
+                mods: {position: 'global'},
                 js: {
                     projectId: matchers[1]
                 }
