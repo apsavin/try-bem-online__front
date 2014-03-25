@@ -27,7 +27,10 @@ BN.addDecl('b-create-block-form')
                 .then(function (response) {
                     BN('i-router').setPath('/clones/' + response.projectId + '/' + response.path + '/');
                 }, function (err) {
-                    window.alert(err.message);
+                    BEM.channel('notification').trigger('notify', {
+                        closable: true,
+                        content: 'Creation error: ' + err.message
+                    });
                 })
                 .always(function () {
                     form.send.disabled = false;

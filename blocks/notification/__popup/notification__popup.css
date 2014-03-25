@@ -1,0 +1,13 @@
+.notification__popup {
+    background: rgba(33, 44, 55, 0.8);
+    border-radius: 3px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 24px;
+    vertical-align: baseline;
+    margin-bottom: 5px;
+    z-index: 99999999;
+    padding: 6px 10px;
+    text-shadow: 0 0 2px #000;
+    min-width: 250px;
+}

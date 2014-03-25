@@ -34,6 +34,9 @@ BEM.DOM.decl('b-project-maker', /**@lends BProjectMaker*/{
      * @private
      */
     _clean: function () {
+        BEM.channel('notification').trigger('notify', {
+            content: 'Clean process started'
+        });
         BN('i-projects-api').cleanProject(this.params.projectId).then(this._onCleanResponse, this._onFail);
     },
 
@@ -53,9 +56,11 @@ BEM.DOM.decl('b-project-maker', /**@lends BProjectMaker*/{
     /**
      * @param {Number} projectId
      * @protected
-     * @abstract
      */
     _onClean: function (projectId) {
+        BEM.channel('notification').trigger('notify', {
+            content: 'Clean process successfully finished'
+        });
     },
 
     /**
@@ -63,13 +68,19 @@ BEM.DOM.decl('b-project-maker', /**@lends BProjectMaker*/{
      * @protected
      */
     _onFail: function (err) {
-        window.alert(err.message);
+        BEM.channel('notification').trigger('notify', {
+            closable: true,
+            content: 'Make (' + (this.params.method || 'build') + ') error: ' + err.message
+        });
     },
 
     /**
      * @private
      */
     _build: function () {
+        BEM.channel('notification').trigger('notify', {
+            content: 'Build process started'
+        });
         BN('i-projects-api').buildProject(this.params.projectId).then(this._onBuildResponse, this._onFail);
     },
 
@@ -89,9 +100,11 @@ BEM.DOM.decl('b-project-maker', /**@lends BProjectMaker*/{
     /**
      * @param {Number} projectId
      * @protected
-     * @abstract
      */
     _onBuild: function (projectId) {
+        BEM.channel('notification').trigger('notify', {
+            content: 'Build process successfully finished'
+        });
     },
 
     /**

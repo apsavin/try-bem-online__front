@@ -21,14 +21,25 @@ BN.addDecl('b-project-file-viewer')
                 try {
                     esprima.parse(content);
                 } catch (e) {
-                    window.alert(e);
+                    BEM.channel('notification').trigger('notify', {
+                        closable: true,
+                        content: 'Can not save. Error in file: ' + e.message
+                    });
                     return;
                 }
             }
             this.setMod('disabled', 'true');
             BN('i-projects-api').writeFile(p.projectId, p.path, content)
+                .then(function () {
+                    BEM.channel('notification').trigger('notify', {
+                        content: 'File successfully saved'
+                    });
+                })
                 .fail(function (e) {
-                    window.alert(e.message);
+                    BEM.channel('notification').trigger('notify', {
+                        closable: true,
+                        content: 'Saving error: ' + e.message
+                    });
                 })
                 .always(function () {
                     this.delMod('disabled');

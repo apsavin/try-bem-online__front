@@ -1,0 +1,18 @@
+.notification {
+    position: fixed;
+    right: 25px;
+    bottom: 24px;
+    top: 24px;
+    z-index: 99999999;
+}
+
+.notification__closer {
+    font-size: 16px;
+    font-weight: 300;
+    height: 19px;
+    line-height: normal;
+    padding-left: 5px;
+    width: 14px;
+    border: 1px solid #FF0000;
+    border-radius: 10px;
+}

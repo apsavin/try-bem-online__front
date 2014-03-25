@@ -1,0 +1,6 @@
+block b-page {
+    default: {
+        var ctx = [this.ctx, { block: 'notification' }];
+        applyCtx(ctx);
+    }
+}

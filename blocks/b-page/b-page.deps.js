@@ -1,5 +1,6 @@
 ({
     shouldDeps: [
-        { block: 'b-content' }
+        { block: 'b-content' },
+        { block: 'notification' }
     ]
 })
