@@ -9,6 +9,11 @@ BEM.DOM.decl({block: 'b-project-maker', modName: 'position', modVal: 'local'}, /
         js: {
             inited: function () {
                 this.__base();
+                /**
+                 * @type {number}
+                 * @private
+                 */
+                this._prevQueue = 0;
                 this.domElem.on('click', this._onClick.bind(this));
             }
         }
@@ -52,6 +57,19 @@ BEM.DOM.decl({block: 'b-project-maker', modName: 'position', modVal: 'local'}, /
     _onFail: function (err) {
         this.__base(err);
         this.delMod('disabled');
+    },
+
+    /**
+     * @param {Number} queue
+     * @protected
+     */
+    _showQueue: function (queue) {
+        if (queue || this._prevQueue) {
+            this._prevQueue = queue;
+            BEM.channel('notification').trigger('notify', {
+                content: 'Make (' + this._getMethod() + ') queue: ' + queue
+            });
+        }
     }
 
 });

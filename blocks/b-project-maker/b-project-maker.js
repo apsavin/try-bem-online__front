@@ -70,8 +70,16 @@ BEM.DOM.decl('b-project-maker', /**@lends BProjectMaker*/{
     _onFail: function (err) {
         BEM.channel('notification').trigger('notify', {
             closable: true,
-            content: 'Make (' + (this.params.method || 'build') + ') error: ' + err.message
+            content: 'Make (' + this._getMethod() + ') error: ' + err.message
         });
+    },
+
+    /**
+     * @returns {String}
+     * @protected
+     */
+    _getMethod: function () {
+        return this.params.method || 'build';
     },
 
     /**
@@ -110,10 +118,8 @@ BEM.DOM.decl('b-project-maker', /**@lends BProjectMaker*/{
     /**
      * @param {Number} queue
      * @protected
+     * @abstract
      */
     _showQueue: function (queue) {
-        if (queue || this.elem('queue').text()) {
-            this.elem('queue').text('Queue: ' + queue);
-        }
     }
 });

@@ -32,6 +32,16 @@ BEM.DOM.decl({block: 'b-project-maker', modName: 'position', modVal: 'global'}, 
      */
     _onClean: function (projectId) {
         BN('i-router').setPath('/cleaned/' + projectId + '/');
+    },
+
+    /**
+     * @param {Number} queue
+     * @protected
+     */
+    _showQueue: function (queue) {
+        if (queue || this.elem('queue').text()) {
+            this.elem('queue').text('Queue: ' + queue);
+        }
     }
 
 });
