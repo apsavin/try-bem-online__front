@@ -4,6 +4,7 @@
     bottom: 24px;
     top: 24px;
     z-index: 99999999;
+    height: 1px;
 }
 
 .notification__closer {

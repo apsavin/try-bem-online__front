@@ -6,8 +6,7 @@
     line-height: 24px;
     vertical-align: baseline;
     margin-bottom: 5px;
-    z-index: 99999999;
     padding: 6px 10px;
     text-shadow: 0 0 2px #000;
-    min-width: 250px;
+    width: 250px;
 }
