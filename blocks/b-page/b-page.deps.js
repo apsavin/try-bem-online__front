@@ -1,6 +1,7 @@
 ({
     shouldDeps: [
         { block: 'b-content' },
-        { block: 'notification' }
+        { block: 'notification' },
+        { block: 'i-ga' }
     ]
 })
