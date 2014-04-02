@@ -44,6 +44,11 @@ BN.addDecl('b-create-block-form')
             return someInput({
                 block: 'input',
                 name: name,
+                attrs: {
+                    pattern: '^[a-z][0-9a-z-]*$',
+                    maxlength: 25,
+                    title: 'Only lowercase latin letters, numbers and dash'
+                },
                 required: !!required
             }, label);
         };
