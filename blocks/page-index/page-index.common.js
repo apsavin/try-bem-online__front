@@ -36,6 +36,20 @@ BN.addDecl('page-index', 'page', {
                     },
                     ' this project and play with it online. TTL of the created clone will be 3h.'
                 ]
+            },
+            {
+                block: 'b-text',
+                elem: 'p',
+                content: [
+                    'For those who first time here, there is a short ',
+                    {
+                        block: 'b-link',
+                        url: 'http://youtu.be/vHzFy_DLORQ',
+                        target: '_blank',
+                        content: 'screencast'
+                    },
+                    '.'
+                ]
             }
         ]);
     }
