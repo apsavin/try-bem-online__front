@@ -1,0 +1,66 @@
+block('b-project-menu').content()(function () {
+    return [
+        {
+            elem: 'item',
+            content: {
+                block: 'b-link',
+                url: path('page-project', {projectId: this.ctx.projectId}),
+                content: 'Root dir'
+            }
+        },
+        {
+            elem: 'item',
+            content: {
+                block: 'b-link',
+                url: path('view', {projectId: this.ctx.projectId}),
+                content: 'View',
+                target: '_blank'
+            }
+        },
+        {
+            elem: 'item',
+            content: {
+                block: 'b-link',
+                url: path('page-build', {projectId: this.ctx.projectId}),
+                mix: {
+                    block: 'b-project-maker',
+                    mods: {
+                        position: 'local'
+                    },
+                    js: {
+                        projectId: this.ctx.projectId
+                    }
+                },
+                target: '_blank',
+                content: 'Build'
+            }
+        },
+        {
+            elem: 'item',
+            content: {
+                block: 'b-link',
+                url: path('page-clean', {projectId: this.ctx.projectId}),
+                mix: {
+                    block: 'b-project-maker',
+                    mods: {
+                        position: 'local'
+                    },
+                    js: {
+                        projectId: this.ctx.projectId,
+                        method: 'clean'
+                    }
+                },
+                target: '_blank',
+                content: 'Clean up'
+            }
+        },
+        {
+            elem: 'item',
+            content: {
+                block: 'b-link',
+                url: path('page-create-block', {projectId: this.ctx.projectId}),
+                content: 'Create...'
+            }
+        }
+    ];
+});

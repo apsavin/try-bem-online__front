@@ -1,0 +1,3 @@
+block('b-project-dir').tag()('ul');
+block('b-project-dir').elem('file').tag()('li');
+block('b-project-dir').elem('file').elemMod('r', 'false').attrs()({title: 'In offline version only'});

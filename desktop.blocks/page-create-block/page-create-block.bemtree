@@ -1,0 +1,32 @@
+block('page-create-block').content()(function () {
+    return [
+        {
+            block: 'b-text',
+            elem: 'h1',
+            content: 'Create something new.'
+        },
+        {
+            block: 'b-project-layout',
+            content: [
+                {
+                    block: 'b-create-block-form',
+                    js: {
+                        projectId: this.ctx.route.parameters.projectId
+                    },
+                    mix: {
+                        block: 'b-project-layout',
+                        elem: 'content'
+                    }
+                },
+                {
+                    block: 'b-project-layout',
+                    elem: 'sidebar',
+                    content: {
+                        block: 'b-project-menu',
+                        projectId: this.ctx.route.parameters.projectId
+                    }
+                }
+            ]
+        }
+    ];
+});

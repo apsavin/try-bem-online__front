@@ -1,0 +1,18 @@
+- id: new_project
+  path: /project
+  host: %sub_domain_api%.%host%
+
+- id: project
+  path: /project/{projectId}/{path}
+  defaults: {path: ''}
+  host: %sub_domain_api%.%host%
+  requirements: {projectId: '[\w-]+', path: '.*'}
+
+- id: techs
+  path: /techs
+  host: %sub_domain_api%.%host%
+
+- id: block
+  path: /block
+  host: %sub_domain_api%.%host%
+

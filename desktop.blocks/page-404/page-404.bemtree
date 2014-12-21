@@ -1,0 +1,7 @@
+block('page-404').content()([
+    {
+        block: 'b-text',
+        elem: 'h1',
+        content: 'Page not found'
+    }
+]);

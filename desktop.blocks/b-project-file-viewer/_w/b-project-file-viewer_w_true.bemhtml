@@ -1,0 +1,30 @@
+block('b-project-file-viewer').mod('w', 'true')(
+    tag()('form'),
+    content()(function () {
+        return [
+            {
+                block: 'button',
+                type: 'submit',
+                content: 'Save'
+            },
+            {
+                elem: 'text',
+                content: applyNext()
+            },
+            {
+                elem: 'preloader-holder',
+                content: {
+                    block: 'preloader',
+                    mods: {
+                        hidden: 'true'
+                    }
+                }
+            },
+            {
+                block: 'button',
+                type: 'submit',
+                content: 'Save'
+            }
+        ];
+    })
+);

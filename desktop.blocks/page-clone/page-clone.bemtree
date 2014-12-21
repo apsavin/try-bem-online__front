@@ -1,0 +1,19 @@
+block('page-clone').content()([
+    {
+        block: 'b-text',
+        elem: 'h1',
+        content: 'Project is cloning right now...'
+    },
+    {
+        block: 'preloader',
+        mix: {
+            block: 'b-project-cloner',
+            js: true
+        }
+    },
+    {
+        block: 'b-text',
+        elem: 'p',
+        content: '...just for you.'
+    }
+]);

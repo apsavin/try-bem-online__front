@@ -1,0 +1,5 @@
+block('page').def()(function () {
+    var ctx = this.ctx;
+    ctx.content = [ctx.content, { block: 'notification' }];
+    applyNext();
+});

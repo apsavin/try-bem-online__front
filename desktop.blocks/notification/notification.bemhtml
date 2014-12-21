@@ -1,0 +1,1 @@
+block('notification').js()(true);

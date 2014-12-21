@@ -1,13 +1,24 @@
 {
     "name": "try-bem-online__front",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": true,
     "dependencies": {
-        "bem-node": "0.8.*",
-        "enb": "0.8.43",
-        "enb-bemhtml": "0.2.1"
+        "bem-environ": "~1.4.0",
+        "bem-xjst": "0.4.0",
+        "vow": "~0.4.3"
+    },
+    "devDependencies": {
+        "bem": "0.8.1",
+        "bower": "~1.2.8",
+        "bower-npm-install": "~0.5.4",
+        "bem-tools-autoprefixer": "0.0.3"
+    },
+    "scripts": {
+        "postinstall": "bower-npm-install",
+        "deps": "bower-npm-install",
+        "start": "node desktop.bundles/index/index.node.js"
     },
     "engines": {
-        "node": ">= 0.10.0"
+        "node": ">= 0.10"
     }
 }

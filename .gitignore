@@ -1,7 +1,12 @@
-app/*/*
-!app/*/*.bemdecl.js
+libs
 node_modules
-.bem/cache
-.bem/tmp
 .idea
-blocks/i-config/i-config.common.js
+
+# bem
+.bem/cache/
+*bundles*/*/*.*
+!*bundles*/*/*.bemdecl.js
+!*bundles*/*/*.min.js
+!*bundles*/*/*.yml
+!*bundles*/.bem/*
+*bundles*/*/*.parameters.yml

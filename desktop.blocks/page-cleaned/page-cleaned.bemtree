@@ -1,0 +1,13 @@
+block('page-cleaned').content()(function () {
+    return [
+        {
+            block: 'b-text',
+            elem: 'h1',
+            content: 'Project is cleaned up.'
+        },
+        {
+            block: 'b-project-menu',
+            projectId: this.ctx.route.parameters.projectId
+        }
+    ];
+});

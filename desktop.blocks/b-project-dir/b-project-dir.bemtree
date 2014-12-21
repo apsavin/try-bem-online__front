@@ -1,0 +1,33 @@
+block('b-project-dir').content()(function () {
+    var content = this.ctx.content.map(function (file) {
+        return {
+            elem: 'file',
+            content: file.content,
+            elemMods: {
+                w: file.w.toString(),
+                r: file.r.toString()
+            },
+            path: this.ctx.path + '/' + file.content
+        };
+    }, this);
+    if (this.ctx.parentPath) {
+        content.unshift({
+            elem: 'file',
+            content: '..',
+            elemMods: {
+                w: 'false',
+                r: 'true'
+            },
+            path: this.ctx.parentPath
+        });
+    }
+    return content;
+});
+
+block('b-project-dir').elem('file').elemMod('r', 'true').content()(function () {
+    return {
+        block: 'b-link',
+        url: this.ctx.path,
+        content: this.ctx.content
+    };
+});

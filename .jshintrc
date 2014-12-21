@@ -12,29 +12,29 @@
     "couch"         : false,
     "wsh"           : false,  // Windows Scripting Host.
 
-    "jquery"        : true,  // Because don't use $, see "predef"
+    "jquery"        : false,
     "prototypejs"   : false,
     "mootools"      : false,
     "dojo"          : false,
 
     // Custom globals.
     "predef"        : [
-        "Vow",
-        "Base",
-        "BEM",
-        "BN",
-        "BEMHTML",
-        "exports",
-        "i18n",
-        "Ya",
-        "Maps",
-        "maps",
-        "YMaps",
-        "ymaps",
-        "jQuery",
-        "require",
-        "include",
-        "swfobject"
+        "modules",
+        //for bemhtml and bemtree
+        "block",
+        "elem",
+        "mod",
+        "content",
+        "tag",
+        "attrs",
+        "js",
+        "bem",
+        "match",
+        "applyNext",
+        "applyCtx",
+        // for bemtree
+        "path",
+        "get"
     ],
 
 
@@ -52,24 +52,20 @@
     // The Good Parts.
     "unused"        : "vars",
     "asi"           : false,  // Tolerate Automatic Semicolon Insertion (no semicolons).
-    "laxbreak"      : true,   // Tolerate unsafe line breaks e.g. `return [\n] x` without semicolons.
     "bitwise"       : false,  // Prohibit bitwise operators (&, |, ^, etc.).
     "boss"          : false,  // Tolerate assignments inside if, for & while. Usually conditions & loops are for comparison, not assignments.
     "curly"         : true,   // Require {} for every new block or scope.
     "eqeqeq"        : true,   // Require triple equals i.e. `===`.
     "eqnull"        : true,   // Tolerate use of `== null`.
-    "evil"          : true,   // Tolerate use of `eval`.
     "expr"          : false,  // Tolerate `ExpressionStatement` as Programs.
-    "forin"         : true,  // Tolerate `for in` loops without `hasOwnPrototype`.
     "immed"         : true,   // Require immediate invocations to be wrapped in parens e.g. `( function(){}() );`
     "latedef"       : true,   // Prohipit variable use before definition.
-    "loopfunc"      : false,  // Allow functions to be defined within loops.
     "noarg"         : true,   // Prohibit use of `arguments.caller` and `arguments.callee`.
     "regexp"        : false,  // Prohibit `.` and `[^...]` in regular expressions.
     "regexdash"     : false,  // Tolerate unescaped last dash i.e. `[-...]`.
     "scripturl"     : true,   // Tolerate script-targeted URLs.
     "shadow"        : false,  // Allows re-define variables later in code e.g. `var x=1; x=2;`.
-    "supernew"      : false,  // Tolerate `new function () { ... };` and `new Object;`.
+    "supernew"      : true,  // Tolerate `new function () { ... };` and `new Object;`.
     "undef"         : true,   // Require all non-global variables be declared before they are used.
 
 
@@ -80,6 +76,5 @@
     "nomen"         : false,  // Prohibit use of initial or trailing underbars in names.
     "plusplus"      : false,  // Prohibit use of `++` & `--`.
     "sub"           : true,   // Tolerate all forms of subscript notation besides dot notation e.g. `dict['key']` instead of `dict.key`.
-    "trailing"      : true,   // Prohibit trailing whitespaces.
-    "white"         : true  // Check against strict whitespace and indentation rules.
+    "trailing"      : true   // Prohibit trailing whitespaces.
 }

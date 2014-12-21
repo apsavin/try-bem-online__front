@@ -1,0 +1,5 @@
+block('b-text').elemMatch(function () {
+    return this.ctx.elem;
+}).tag()(function () {
+    return this.ctx.elem;
+});

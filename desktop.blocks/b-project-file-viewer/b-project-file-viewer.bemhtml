@@ -1,0 +1,1 @@
+block('b-project-file-viewer').elem('text').tag()('textarea');

@@ -1,0 +1,16 @@
+block('page-build').content()(function () {
+    return [
+        {
+            block: 'b-text',
+            elem: 'h1',
+            content: 'Project is in build process...'
+        },
+        {
+            block: 'b-project-maker',
+            mods: {position: 'global'},
+            js: {
+                projectId: this.ctx.route.parameters.projectId
+            }
+        }
+    ];
+});

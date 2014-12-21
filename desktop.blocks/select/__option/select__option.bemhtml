@@ -1,0 +1,7 @@
+block('select').elem('option')(
+    bem()(false),
+    tag()('option'),
+    attrs()(function () {
+        return {value: this.ctx.value};
+    })
+);

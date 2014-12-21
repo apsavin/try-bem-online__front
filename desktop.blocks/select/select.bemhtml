@@ -1,0 +1,18 @@
+block('select')(
+    tag()('select'),
+    js()(true),
+    content()(function () {
+        return this.ctx.options.map(function (option) {
+            return {
+                elem: 'option',
+                content: option.content || option,
+                value: option.value || option
+            };
+        });
+    }),
+    attrs()(function () {
+        return {
+            name: this.ctx.name
+        };
+    })
+);

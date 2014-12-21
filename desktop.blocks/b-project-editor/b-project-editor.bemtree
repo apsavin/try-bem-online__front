@@ -1,0 +1,58 @@
+block('b-project-editor').content()(function () {
+    return this.get('project', {
+            projectId: this.ctx.projectId,
+            path: this.ctx.path
+        },
+        function (data) {
+            var content = data.body.content;
+            if (!content && content !== '') {
+                return applyCtx({
+                    block: 'b-project-error',
+                    content: data.body
+                });
+            }
+            var curPath = this.ctx.currentPath,
+                lastCurPathSymbolIndex = curPath.length - 1,
+                parentPath = null;
+
+            if (curPath.charAt(lastCurPathSymbolIndex) === '/') {
+                curPath = curPath.substr(0, lastCurPathSymbolIndex);
+            }
+
+            if (!!this.ctx.path) {
+                var pathsParts = curPath.split('/');
+                pathsParts.pop();
+                parentPath = pathsParts.join('/');
+            }
+
+            if (Array.isArray(content)) {
+                content = {
+                    block: 'b-project-dir',
+                    content: content,
+                    path: curPath,
+                    parentPath: parentPath
+                };
+            } else {
+                content = [
+                    {
+                        block: 'b-link',
+                        url: parentPath,
+                        content: '..'
+                    },
+                    {
+                        block: 'b-project-file-viewer',
+                        content: content,
+                        mods: {
+                            w: data.body.w.toString()
+                        },
+                        js: {
+                            path: this.ctx.path,
+                            projectId: this.ctx.projectId,
+                            mode: /\.css\/$/.test(curPath) ? 'css' : 'javascript'
+                        }
+                    }
+                ];
+            }
+            return applyCtx(content);
+        });
+});

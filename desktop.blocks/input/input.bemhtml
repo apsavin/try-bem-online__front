@@ -1,0 +1,13 @@
+block('input')(
+    tag()('input'),
+    attrs()(function () {
+        var attrs = {
+            type: this.ctx.type || 'text',
+            name: this.ctx.name
+        };
+        if (this.ctx.required) {
+            attrs.required = true;
+        }
+        return attrs;
+    })
+);

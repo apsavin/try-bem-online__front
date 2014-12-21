@@ -1,0 +1,47 @@
+#api
+- id: api
+  path: /api
+
+#domains
+
+- id: example
+  path: /
+  host: %sub_domain_example%.%host%
+
+- id: view
+  path: /{projectId}/index.html
+  host: %sub_domain_views%.%host%
+  requirements: {projectId: '[\w-]+'}
+
+#pages
+- id: page-index
+  path: /
+
+- id: page-clone
+  path: /clone
+
+- id: page-project
+  path: /clones/{projectId}/{path}
+  defaults: {path: ''}
+  requirements: {projectId: '[\w-]+', path: '.*'}
+
+- id: page-build
+  path: /build/{projectId}
+  requirements: {projectId: '[\w-]+'}
+
+- id: page-built
+  path: /built/{projectId}
+  requirements: {projectId: '[\w-]+'}
+
+- id: page-clean
+  path: /clean/{projectId}
+  requirements: {projectId: '[\w-]+'}
+
+- id: page-cleaned
+  path: /cleaned/{projectId}
+  requirements: {projectId: '[\w-]+'}
+
+- id: page-create-block
+  path: /create_block/{projectId}
+  requirements: {projectId: '[\w-]+'}
+

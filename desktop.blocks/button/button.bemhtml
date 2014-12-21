@@ -1,0 +1,16 @@
+block('button')(
+    match(function () {return !this.ctx.url;})(
+        tag()('button'),
+        attrs()(function () {
+            return {
+                type: this.ctx.type,
+                name: this.ctx.name
+            };
+        }),
+        mod('disabled', true).attrs()({disabled: 'disabled'})
+    ),
+    match(function () {return this.ctx.url;})(
+        tag()('a'),
+        attrs()(function () {return {href: this.ctx.url};})
+    )
+);

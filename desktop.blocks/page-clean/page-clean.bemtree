@@ -1,0 +1,17 @@
+block('page-clean').content()(function () {
+    return [
+        {
+            block: 'b-text',
+            elem: 'h1',
+            content: 'Project is in clean up process...'
+        },
+        {
+            block: 'b-project-maker',
+            mods: {position: 'global'},
+            js: {
+                projectId: this.ctx.route.parameters.projectId,
+                method: 'clean'
+            }
+        }
+    ];
+});

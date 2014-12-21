@@ -1,0 +1,13 @@
+block('b-project-maker').content()([
+    {
+        block: 'preloader'
+    },
+    {
+        block: 'b-text',
+        elem: 'h2',
+        mix: {
+            block: 'b-project-maker',
+            elem: 'queue'
+        }
+    }
+]);

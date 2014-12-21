@@ -1,0 +1,8 @@
+block('project-presenter')(
+    tag()('iframe'),
+    attrs()(function () {
+        return {
+            src: this.ctx.url
+        };
+    })
+);

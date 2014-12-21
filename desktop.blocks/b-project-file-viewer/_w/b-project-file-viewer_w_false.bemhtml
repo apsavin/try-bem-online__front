@@ -1,0 +1,6 @@
+block('b-project-file-viewer').mod('w', 'false').content()(function () {
+    return {
+        elem: 'text',
+        content: applyNext()
+    };
+});
