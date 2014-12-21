@@ -1,0 +1,3 @@
+app-kernel:
+  port: %port%
+  staticHost: %staticHost%

@@ -4,6 +4,7 @@ node_modules
 
 # bem
 .bem/cache/
+.bem/tmp/
 *bundles*/*/*.*
 !*bundles*/*/*.bemdecl.js
 !*bundles*/*/*.min.js

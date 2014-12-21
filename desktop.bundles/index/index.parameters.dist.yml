@@ -2,4 +2,5 @@ host: try-bem-online.dev
 sub_domain_example: example
 sub_domain_api: api
 sub_domain_views: views
-static_domain: localhost:8080
+port: 3000
+staticHost: localhost:8080
