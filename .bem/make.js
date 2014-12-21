@@ -35,10 +35,6 @@ MAKE.decl('BundleNode', {
                 'libs/bnsf/pre-bem-core.blocks',
                 'libs/bem-core/common.blocks',
                 'libs/bem-core/desktop.blocks',
-                'libs/bem-components/common.blocks',
-                'libs/bem-components/desktop.blocks',
-                'libs/bem-components/design/common.blocks',
-                'libs/bem-components/design/desktop.blocks',
                 'libs/bnsf/blocks',
                 'libs/bnsf/dev.blocks',
                 'desktop.blocks'
