@@ -1,9 +1,12 @@
-block('b-link').tag()('a').attrs()(function () {
-    var attrs = {
-        href: this.ctx.url
-    };
-    if (this.ctx.target) {
-        attrs.target = this.ctx.target;
-    }
-    return attrs;
-});
+block('b-link')(
+    tag()('a'),
+    attrs()(function () {
+        var attrs = {
+            href: this.ctx.url
+        };
+        if (this.ctx.target) {
+            attrs.target = this.ctx.target;
+        }
+        return attrs;
+    })
+);
