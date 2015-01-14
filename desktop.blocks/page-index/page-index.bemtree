@@ -47,3 +47,5 @@ block('page-index').content()(function () {
         }
     ];
 });
+
+block('page-index').elem('title').content()('Try BEM online');

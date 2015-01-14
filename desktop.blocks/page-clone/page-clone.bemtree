@@ -17,3 +17,5 @@ block('page-clone').content()([
         content: '...just for you.'
     }
 ]);
+
+block('page-clone').elem('title').content()('Project is cloning right now...');

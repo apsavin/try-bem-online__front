@@ -15,3 +15,5 @@ block('page-clean').content()(function () {
         }
     ];
 });
+
+block('page-clean').elem('title').content()('Project is in clean up process...');

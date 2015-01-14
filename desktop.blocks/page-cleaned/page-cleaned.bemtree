@@ -11,3 +11,5 @@ block('page-cleaned').content()(function () {
         }
     ];
 });
+
+block('page-cleaned').elem('title').content()('Project is cleaned up.');

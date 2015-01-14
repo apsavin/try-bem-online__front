@@ -30,3 +30,5 @@ block('page-project').content()(function () {
         }
     ];
 });
+
+block('page-project').elem('title').content()('Your project');

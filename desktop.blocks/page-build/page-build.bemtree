@@ -14,3 +14,5 @@ block('page-build').content()(function () {
         }
     ];
 });
+
+block('page-build').elem('title').content()('Project is in build process...');

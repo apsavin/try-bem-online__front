@@ -5,3 +5,5 @@ block('page-404').content()([
         content: 'Page not found'
     }
 ]);
+
+block('page-404').elem('title').content()('Page not found');

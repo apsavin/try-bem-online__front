@@ -30,3 +30,5 @@ block('page-create-block').content()(function () {
         }
     ];
 });
+
+block('page-create-block').elem('title').content()('Create something new.');

@@ -1,4 +1,4 @@
-modules.define('page-project', function (provide, PageProject) {
+modules.define('page-project', ['i-page'], function (provide, Page) {
     "use strict";
 
     /**
@@ -6,11 +6,11 @@ modules.define('page-project', function (provide, PageProject) {
      * @extends IPage
      * @exports
      */
-    provide(PageProject.decl(/**@lends PageProject*/{
+    provide(Page.decl(this.name, /**@lends PageProject*/{
 
         /**
          * @param {Object} data
-         * @returns {vow:Promise}
+         * @returns {Promise}
          */
         update: function (data) {
             return this._replace('b-project-editor', {

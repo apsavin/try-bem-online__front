@@ -11,3 +11,5 @@ block('page-built').content()(function () {
         }
     ];
 });
+
+block('page-built').elem('title').content()('Project is built.');
