@@ -11,7 +11,7 @@ block('page-create-block').content()(function () {
                 {
                     block: 'b-create-block-form',
                     js: {
-                        projectId: this.ctx.route.parameters.projectId
+                        projectId: this.route.parameters.projectId
                     },
                     mix: {
                         block: 'b-project-layout',
@@ -23,7 +23,7 @@ block('page-create-block').content()(function () {
                     elem: 'sidebar',
                     content: {
                         block: 'b-project-menu',
-                        projectId: this.ctx.route.parameters.projectId
+                        projectId: this.route.parameters.projectId
                     }
                 }
             ]

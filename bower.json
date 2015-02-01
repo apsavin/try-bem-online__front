@@ -9,6 +9,6 @@
     "libs"
   ],
   "dependencies": {
-    "bnsf": "v0.0.8"
+    "bnsf": "0.0.17"
   }
 }

@@ -9,7 +9,7 @@ block('page-build').content()(function () {
             block: 'b-project-maker',
             mods: {position: 'global'},
             js: {
-                projectId: this.ctx.route.parameters.projectId
+                projectId: this.route.parameters.projectId
             }
         }
     ];

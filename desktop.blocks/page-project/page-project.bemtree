@@ -1,34 +1,59 @@
-block('page-project').content()(function () {
-    return [
-        {
-            block: 'b-text',
-            elem: 'h1',
-            content: 'Play with your project right now!'
-        },
-        {
-            block: 'b-project-layout',
-            content: [
-                {
-                    block: 'b-project-editor',
-                    projectId: this.ctx.route.parameters.projectId,
-                    path: this.ctx.route.parameters.path,
-                    currentPath: this.ctx.request.url,
-                    mix: {
+block('page-project')(
+    content()(function () {
+        return [
+            {
+                block: 'b-text',
+                elem: 'h1',
+                content: 'Play with your project right now!'
+            },
+            {
+                block: 'b-project-layout',
+                content: [
+                    {
+                        block: 'page-project',
+                        elem: 'editor'
+                    },
+                    {
                         block: 'b-project-layout',
-                        elem: 'content'
+                        elem: 'sidebar',
+                        content: {
+                            block: 'b-project-menu',
+                            projectId: this.route.parameters.projectId
+                        }
                     }
-                },
+                ]
+            }
+        ];
+    }),
+    js()({
+        update: {
+            elem: 'editor'
+        }
+    })
+);
+
+block('page-project').elem('editor').def()(function () {
+    return applyCtx({
+        block: 'page-project',
+        elem: 'editor',
+        tag: '',
+        content: {
+            block: 'b-project-editor',
+            projectId: this.route.parameters.projectId,
+            path: this.route.parameters.path,
+            currentPath: this.request.url,
+            mix: [
                 {
                     block: 'b-project-layout',
-                    elem: 'sidebar',
-                    content: {
-                        block: 'b-project-menu',
-                        projectId: this.ctx.route.parameters.projectId
-                    }
+                    elem: 'content'
+                },
+                {
+                    block: 'page-project',
+                    elem: 'editor'
                 }
             ]
         }
-    ];
+    });
 });
 
 block('page-project').elem('title').content()('Your project');

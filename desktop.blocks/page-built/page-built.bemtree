@@ -7,7 +7,7 @@ block('page-built').content()(function () {
         },
         {
             block: 'b-project-menu',
-            projectId: this.ctx.route.parameters.projectId
+            projectId: this.route.parameters.projectId
         }
     ];
 });
